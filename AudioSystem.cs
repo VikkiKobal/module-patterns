@@ -18,7 +18,15 @@ namespace module_patterns
             if (!IsMuted && Volume < 100)
             {
                 Volume += 10;
-                Console.WriteLine($"Volume increased to: {Volume}");
+                Console.WriteLine($"Гучність збільшено до: {Volume}");
+            }
+            else if (IsMuted)
+            {
+                Console.WriteLine("Не можна збільшити гучність, оскільки система вимкнена.");
+            }
+            else
+            {
+                Console.WriteLine("Гучність уже на максимальному рівні.");
             }
         }
 
@@ -27,20 +35,28 @@ namespace module_patterns
             if (!IsMuted && Volume > 0)
             {
                 Volume -= 10;
-                Console.WriteLine($"Volume decreased to: {Volume}");
+                Console.WriteLine($"Гучність зменшено до: {Volume}");
+            }
+            else if (IsMuted)
+            {
+                Console.WriteLine("Не можна зменшити гучність, оскільки система вимкнена.");
+            }
+            else
+            {
+                Console.WriteLine("Гучність уже на мінімальному рівні.");
             }
         }
 
         public void Mute()
         {
             IsMuted = true;
-            Console.WriteLine("Audio system is muted.");
+            Console.WriteLine("Аудіосистема вимкнена.");
         }
 
         public void Unmute()
         {
             IsMuted = false;
-            Console.WriteLine("Audio system is unmuted.");
+            Console.WriteLine("Аудіосистема увімкнена.");
         }
     }
 }
